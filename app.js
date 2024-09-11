@@ -36,3 +36,18 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const options = document.querySelectorAll('.options li');
+  
+  options.forEach(option => {
+      option.addEventListener('click', function () {
+          options.forEach(opt => opt.classList.remove('correct', 'incorrect'));
+          
+          if (this.dataset.correct === 'true') {
+              this.classList.add('correct');
+          } else {
+              this.classList.add('incorrect');
+          }
+      });
+  });
+});
